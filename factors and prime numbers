@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jun  6 16:54:28 2019
+
+@author: pranjal
+"""
+
+#function to get factors of a number
+
+def factors(n):
+    factorList= []
+    for i in range(1,n+1):
+        if n%i == 0:
+            factorList = factorList+[i]
+    return(factorList)
+    
+#function to check n is prime ni. or not
+
+def isprime(n):
+    return(factors(n)==[1,n])
+
+#function to get prime numbers to get certain number n
+
+def primeUpto(n):
+    primeList= []
+    for i in range(1,n+1):
+        if isprime(i):
+            primeList = primeList+[i]
+    return(primeList)
+
+#Function for n prime numbers
+
+def nprime(n):
+    (count,i,pList)=(0,1,[])
+    while count < n:
+        if isprime(i):
+            (count,pList)=(count+1,pList+[i])
+        i += 1
+    return(pList)
+
+print(primeUpto(41))
+print(factors(41))
+print(isprime(41))
+print(nprime(10))
